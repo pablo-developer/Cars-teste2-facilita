@@ -17,11 +17,13 @@
         <main>
             @if(Session::has('messagem'))
                 <div class="container">
-                    <div class="row">
-                        <div class="card {{ Session::get('messagem')['class']}}">
-                            <div align="center" class="card-content">                                
-                                {{ Session::get('messagem')['msg']}}
-                                
+                    <div class="row justify-content-md-center">
+                        <div class="col-md-8 col-md-offset-2">
+                            <div class="card {{ Session::get('messagem')['class']}}">
+                                <div align="center" class="card-content">                                
+                                    {{ Session::get('messagem')['msg']}}
+                                    
+                                </div>
                             </div>
                         </div>
                     </div>

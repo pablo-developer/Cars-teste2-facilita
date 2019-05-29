@@ -10,7 +10,7 @@ use DB;
 class CorController extends Controller
 {   
     public function index(){
-        $cores = Cores::all();
+        $cores = Cores::all();        
         return view('admin.cores.index', compact('cores'));
     }
     public function adicionar(){
@@ -46,7 +46,7 @@ class CorController extends Controller
         DB::beginTransaction();
         try {
             DB::table('cores')
-                ->where('id',$id)
+                ->where('corID',$id)
                 ->update(
                     [
                         'corNome'=>$dados['corNome'],                        

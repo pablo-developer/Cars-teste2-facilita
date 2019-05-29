@@ -14,10 +14,10 @@ class CreateCoresTable extends Migration
     public function up()
     {
         Schema::create('cores', function (Blueprint $table) {
-            $table->Increments('id');
-            $table->string('corNome',150);
-            $table->char('corStatus');
-            $table->timestamps();            
+            $table->Increments('corID');
+            $table->string('corNome',150);            
+            $table->enum('corStatus',['0','1'])->default('1');  
+            $table->timestamps();                      
         });
     }
 

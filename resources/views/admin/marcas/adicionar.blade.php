@@ -15,10 +15,10 @@
 @section('content')
 <div  class="container">
         <h2 align="center">Adicionar de Marca</h2>          
-        <div class="row">
+        <div class="row justify-content-md-center">
             <nav>
                 <div class="nav-wrapper"  aria-label="breadcrumb">
-                    <div class="col-md-12 breadcrumb">                        
+                    <div class="col-md-8 col-md-offset-2 col-md-12 breadcrumb">                        
                         <li><a class="breadcrumb-item" href="{{route('admin.principal')}}">Iniciar</a></li>
                         <li><a class="breadcrumb-item" href="{{route('admin.marcas')}}">Lista Marcas</a></li>
                         <li><a>Adicionar de Marca</a></li>                            
@@ -27,8 +27,8 @@
             </nav>
         
         </div>  
-        <div class="row">
-            <div class="col-md-6 col-md-12" id="center">
+        <div class="row justify-content-md-center">
+            <div class="col-md-8 col-md-offset-2 col-md-12" id="center">
             <form action="{{route('admin.marcas.salvar')}}" method="post">
                 {{csrf_field()}}
                 @include('admin.marcas._form')

@@ -1,4 +1,4 @@
-
+<!--
 <style>
    
 body {
@@ -69,4 +69,35 @@ input#email.form-control{
   </div>
 
 
- 
+-->
+
+@extends('layouts.app')
+
+@section('content')
+    <div class="row justify-content-md-center">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="paniel panel-default">
+                <div class="paniel-heading">
+                        <h1 class="panel-title">Acesso a aplicação</h1>
+                </div>                
+                <div class="panel-body">                    
+                    <form class="form-horizontal" role="form"  action="{{route('admin.login')}}" method="post">    
+                        {{csrf_field()}}
+                        <div class="form-group {{$errors->has('usuarioEmail') ? 'has-danger': ''}}" >
+                            <label for="usuarioEmail">Email</label>
+                            <input class="form-control" type="email" name="email" placeholder="Digiti o email">
+                            {!! $errors->first('usuarioEmail', '<span class="help-block">:message</span>')!!}
+                        </div>
+                        <div class="form-group {{$errors->has('usuarioPassword') ? 'has-danger': ''}}" >
+                            <label for="usuarioPassword">Senha</label>
+                            <input class="form-control " type="password" name="password" placeholder="Digiti a senha">
+                            {!! $errors->first('usuarioPassword', '<span class="help-block">:message</span>')!!}
+                        </div>
+                        <button class="btn btn-primary btn-block">Acessar</button>
+                    </form>
+                </div>
+            </div>
+        </div>        
+    </div>
+    
+@endsection

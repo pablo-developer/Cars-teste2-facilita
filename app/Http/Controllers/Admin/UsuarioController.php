@@ -11,8 +11,22 @@ use DB;
 class UsuarioController extends Controller
 {
     public function login(Request $request){        
-        $dados = $request->all();
-        if(Auth::attempt(['email'=>$dados['email'],'password'=>$dados['password']])){        
+        //$dados = $request->all();
+
+        $dados = validator($request->all(),[
+            'email' => 'required|string|min:3|max:100',
+            'password' => 'required|string|min:3|max:100',
+        ]);
+
+        if ($dados->fails()){
+            return redirect('/admin/login')->withErrors($dados)->withInput();            
+        }
+
+        $credentials = ['email'=>$request['email'],'password'=>$request['password']];
+
+
+
+        if(Auth::attempt($credentials)){        
             \Session::flash('messagem',['msg'=>'Login realizado com sucesso!','class'=>'alert alert-success alert-dismissible']);            
             return redirect()->route('admin.principal');
         }

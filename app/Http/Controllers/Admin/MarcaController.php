@@ -46,7 +46,7 @@ class MarcaController extends Controller
         DB::beginTransaction();
         try {
             DB::table('marcas')
-                ->where('id',$id)
+                ->where('marcaID',$id)
                 ->update(
                     [
                         'marcaNome'=>$dados['marcaNome'],                        
